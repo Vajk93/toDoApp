@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding:0;
+  margin: 0;
+}
+
+body {
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+  background: hsl(0, 0%, 98%);
+}
+.body-dark-mode {
+  background: hsl(235, 21%, 11%);
+}
+
+img  {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+ #bgImage {
+  width:100vw;
+  height: 300px;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+  background-image: url(images/bg-desktop-light.jpg);
+  background-position: center;
+}
+.bg-img-dark-mode {
+  background-image: url(images/bg-desktop-dark.jpg) !important;
+}
+
+main {
+  width:600px;
+  height:300px;
+  margin:0 auto;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width:auto;
+    height:auto;
+    margin: 80px 15px 20px 15px;
+  }
+}  
+
+/************************************** BG AND TITLE SECTION *********************************/
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.title p {
+  font-size: 2.5em;
+  text-transform: uppercase;
+  color:white;
+  font-weight: 700;
+  letter-spacing: 10px;
+}
+.moon-svg {
+  cursor: pointer;
+}
+.sun-svg {
+  display: none;
+  cursor: pointer;
+}
+
+
+/************************************** THE PLACEHOLDER *********************************/
+.placeholder-row {
+  height: 60px;
+  margin-top: 50px;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+#emptyCircle { /* circle */
+  position: absolute;
+  top:17px;
+  left: 20px;
+  width:23px;
+  height: 23px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #EDEDED;
+  z-index: 9999;
+}
+.empty-circle-dark-mode {
+  background: hsl(235, 24%, 19%) !important;
+}
+.placeholder-row input {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  padding-left: 50px;
+  border-radius: 7px;
+  border: none;
+  font-size: 1.1em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.inputBG-dark-mode {
+  background: hsl(235, 24%, 19%) !important;
+  color: hsl(234, 39%, 85%);
+}
+
+input:focus{
+  outline: none;
+}
+
+
+/*************************************** CUSTOM CHECKBOX  **********************************/
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.check-svg-div {
+  width:25px;
+  height:25px;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+}
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  border:1px solid #EDEDED;
+  margin-top: -6px;
+}
+
+/* When the checkbox is checked, add the linear background */
+.checkbox-container input:checked ~ .checkmark {
+  background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 8px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+/*************************************** LIST ITEMS SECTION **********************************/
+#toDoThingsId {
+  background:white;
+  box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.25);
+  position: relative;
+  border-radius: 7px;
+}
+.items-dark-mode {
+ background: hsl(235, 24%, 19%) !important;
+ border: none;
+ color: hsl(234, 39%, 85%);
+}
+
+.liDivClass {
+  height: 60px;
+  width: 100%;
+  padding-left: 20px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid;
+  border-color: grey;
+}
+
+.cross-svg-div {
+  position: absolute;
+  top:22px;
+  right:20px;
+  opacity:1;
+  transition: 200ms;
+}
+
+@media screen and (min-width: 600px) {
+  .liDivClass:hover .cross-svg-div,
+  .liDivClass:active .cross-svg-div{
+  opacity:1;
+  transition: 200ms;
+  }
+  .liDivClass:hover .checkmark,
+  .liDivClass:active .checkmark {
+    transition: 200ms;
+    border-color: hsl(280, 87%, 65%);;
+  }
+  .cross-svg-div {
+    opacity:0;
+  }
+  #clearCompletedBtn:hover,
+  #clearCompletedBtn:active {
+    color:lightgrey;
+  }
+  #allBtn:hover,
+  #allBtn:active,
+  #activeBtn:hover,
+  #activeBtn:active,
+  #completedBtn:hover,
+  #completedBtn:active,
+  #clearCompletedBtn:hover,
+  #clearCompletedBtn:active {
+    color: hsl(220, 98%, 61%);
+  }
+}
+
+
+/*************************************** OPTIONS BELOW SECTION **********************************/
+.options-below-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:60px;
+  width:100%;
+  position: relative;
+  /*border-top: 1px solid hsl(0, 0%, 98%);*/
+  color: grey;
+}
+
+#showLeftItemsBtn {
+  position: absolute;
+  top:23px;
+  left:22px;
+  font-size: 14px;
+  color: grey;
+  cursor:default;
+}
+
+#clearCompletedBtn,
+#mobileClearCompletedBtn {
+  position: absolute;
+  top:23px;
+  right:20px;
+  font-size: 14px;
+  color: grey;
+  cursor: pointer;
+}
+
+.options-below-div p {
+  margin: auto 10px;
+}
+
+#mobileViewButtonsBelow {
+  background:white;
+  box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.25);
+  position: relative;
+  border-radius: 7px;
+  margin-top: 10px;
+}
+
+#allBtn,
+#activeBtn,
+#completedBtn {
+  display: none;
+}
+
+#optionsBelowDivId {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:60px;
+  width:100%;
+  position: relative;
+  /*border-top: 1px solid hsl(0, 0%, 98%);*/
+  background: white;
+  border-radius: 7px;
+  margin-top: 10px;
+  box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.25);
+}
+#optionsBelowDivId p {
+  padding:10px;
+  color: grey;
+}
+.mobile-options-dark-mode {
+  background:hsl(235, 24%, 19%) !important;
+}
+
+@media screen and (min-width: 600px) {
+  #mobileButtonsBelow {
+    display: none;
+  }
+  #allBtn,
+  #activeBtn,
+  #completedBtn {
+    display: flex;
+  }
+}
+
+
+/*************************************** FRONTEND MENTOR ATTRIBUTION  **********************************/
+.attribution {
+  margin: 50px auto;
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: grey;
+}
+.attribution a {
+  color: grey;
+}
+
+
+
+
