@@ -30,6 +30,7 @@ img  {
   z-index: -1;
   background-image: url(images/bg-desktop-light.jpg);
   background-position: center;
+  background-size: cover;
 }
 .bg-img-dark-mode {
   background-image: url(images/bg-desktop-dark.jpg) !important;
